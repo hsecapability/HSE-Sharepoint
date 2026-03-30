@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frequently Asked Questions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI';
+      background: #f3f2f1;
+      color: #323130;
+      padding: 40px 20px;
+    }
+
+    .faq-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 4px;
+      padding: 36px 40px 48px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    /* ── Header ── */
+    .faq-header {
+      display: flex;
+      padding: 0px 0px 0px 0px;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .faq-icon {
+      width: 72px;
+      height: 72px;
+      flex-shrink: 0;
+    }
+
+    .faq-header h1 {
+      font-size: 36px;
+      font-weight: 600;
+      color: #1a1a2e;
+      letter-spacing: 0.2px;
+    }
+
+    .faq-divider {
+      width: 360px;
+      height: 3px;
+      background: #6b2fa0;
+      border-radius: 2px;
+      margin: 0px 0 28px 0px;
+    }
+
+    /* ── Accordion ── */
+    .faq-item {
+      margin-bottom: 10px;
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 8px 12px;
+      background: #6b2fa0;
+      text-align: left;
+    }
+
+    .faq-question span {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .faq-answer {
+      background: #faf5ff;
+      border-left: 4px solid #6b2fa0;
+    }
+
+    .faq-answer-inner {
+      padding: 20px 24px;
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: #3b3b3b;
+    }
+
+    .faq-answer-inner ol,
+    .faq-answer-inner ul {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+
+    .faq-answer-inner li {
+      margin-bottom: 6px;
+    }
+
+    .faq-answer-inner p {
+      margin-bottom: 10px;
+    }
+
+    .faq-answer-inner strong {
+      color: #6b2fa0;
+    }
+
+    /* ── Search Bar ── */
+    .search-container {
+      margin-bottom: 24px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 44px;
+      font-size: 15px;
+      font-family: 'Segoe UI';
+      border: 2px solid #e1dfdd;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: #6b2fa0;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .search-icon svg {
+      fill: none;
+      stroke: #605e5c;
+      stroke-width: 2;
+      stroke-linecap: round;
+      transition: stroke 0.2s;
+    }
+
+    .search-input:focus ~ .search-icon svg {
+      stroke: #6b2fa0;
+    }
+
+    /* Highlight matching text */
+    .highlight {
+      background-color: #ffeb3b;
+      color: #000;
+      padding: 2px 0;
+      border-radius: 2px;
+    }
+
+    .search-stats {
+      font-size: 13px;
+      color: #605e5c;
+      margin-top: 8px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+<div class="faq-wrapper">
+
+  <!-- Header -->
+  <div class="faq-header">
+    <svg class="faq-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="8" width="32" height="26" rx="4" fill="#ede7f6" stroke="#6b2fa0" stroke-width="2"/>
+      <line x1="10" y1="16" x2="30" y2="16" stroke="#6b2fa0" stroke-width="2" stroke-linecap="round"/>
+      <line x1="10" y1="22" x2="26" y2="22" stroke="#6b2fa0" stroke-width="2" stroke-linecap="round"/>
+      <line x1="10" y1="28" x2="22" y2="28" stroke="#6b2fa0" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="38" cy="16" r="10" fill="#fff" stroke="#6b2fa0" stroke-width="2"/>
+      <text x="34.5" y="20.5" font-size="12" font-weight="700" fill="#6b2fa0" font-family="Segoe UI">?</text>
+    </svg>
+    <h1>Frequently Asked Questions</h1>
+  </div>
+  <div class="faq-divider"></div>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <div class="search-input-wrapper">
+      <div class="search-icon">
+        <svg viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <input 
+        type="text" 
+        class="search-input" 
+        id="searchInput" 
+        placeholder="Search FAQs..."
+        oninput="searchFAQ()"
+      />
+    </div>
+    <div class="search-stats" id="searchStats"></div>
+  </div>
+
+  <!-- FAQ Items -->
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Where do I find my Capability Manager ?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>To find your Capability Manager, follow these steps:</p>
+        <ol>
+          <li>Log in to My HCLTech Portal.</li>
+          <li>Navigate to Employee Self Service (ESS).</li>
+          <li>Go to ESS Home (located on the top right corner).</li>
+          <li>Under Organization Info section, you will find your capability manager info.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>I Need some clarification / additional support regarding technical query . Where should i ask ?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Great! We have our own HSE community where you can post your clarifications, doubts, or any technical discussions. The respective people will approach you to provide assistance and support. You can access the community by clicking the Technical Discussion button on our HSE home page.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are there any case studies available in HSE site and how can I access them?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Yes, there are case studies available on this website. To access them, follow these steps:</p>
+        <ol>
+          <li>Navigate to the home page of the website.</li>
+          <li>Look for the Knowledge Repository icon and click on it.</li>
+          <li>You will be redirected to a form.</li>
+          <li>Provide your Name, SAP ID, Capability Unit (CU), and the reason for access.</li>
+          <li>Once you have filled in all the required information, submit the form.</li>
+          <li>After submission, you will receive access to the knowledge repository.</li>
+        </ol>
+        <p>This process will grant you access to a wealth of case studies in HSE site</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are there recordings available for the trainings?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Yes, recordings of the trainings are available. To access them, you need to navigate to the training page specific to your Capability Unit (e.g., RACE - Training page). On this page, you will find a list of trainings that have been conducted. Look for the column named "Link," where the recorded session links are provided. By clicking on the desired link, you can access the recorded session of the training you are interested in. This process should help you easily access the training recordings.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>I have a new ideas / Innovation solutions . whom should i contact to get it done ?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Nice! You can post your ideas on our HSE site by navigating to your Capability Unit (CU) - ACE page (e.g., SysD ACE). This will redirect you to a form where you can fill in the relevant details and submit it. After your submission, the CU Head or CM will approach you to discuss your idea further.</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="faq-item">
+    <div class="faq-question">
+      <span>Do I need to change my Reporting Manager (RM) if I move to the bench?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>No, your current RM will remain the same until you transition to a new opportunity or project.</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="faq-item">
+    <div class="faq-question">
+      <span>Can my Capability Manager become my Reporting Manager?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Mostly no. However, in some cases, your Capability Manager might also serve as your Reporting Manager pertaining to geographical constraints.</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="faq-item">
+    <div class="faq-question">
+      <span>How can I find out which Capability Unit (CU) I belong to?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>You can find your CU in capitalized letters under your name at the end of the profile detail page. You may also refer to the image below for reference.</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="faq-item">
+    <div class="faq-question">
+      <span>Where can CMs find the list of their associates?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>There are two ways to find this information:</p>
+        <ol>
+          <li>On the HSE homepage under the CM Mapping section – simply select your name to view the list of your associates.</li>
+          <li>In ESS Home, under the Reports section – look for the report titled List of Deployables to view your associates.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+    <div class="faq-item">
+    <div class="faq-question">
+      <span>What if there is mismatch in list of associates with CM mapping and reports?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Kindly communicate with CU head to resolve the issue and ensure the data is updated accurately.</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="faq-item">
+    <div class="faq-question">
+      <span>I wish to request for project rotation . whom should i approach?</span>
+    </div>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Kindly reach out your CM .The CM will consult with your RM and take the request forward accordingly.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let originalContent = {};
+
+  // Store original content on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item, index) => {
+      const question = item.querySelector('.faq-question span');
+      const answerInner = item.querySelector('.faq-answer-inner');
+      originalContent[index] = {
+        question: question.innerHTML,
+        answer: answerInner.innerHTML
+      };
+    });
+  });
+
+  function searchFAQ() {
+    const searchTerm = document.getElementById('searchInput').value.trim();
+    const faqItems = document.querySelectorAll('.faq-item');
+    const statsDiv = document.getElementById('searchStats');
+    
+    // If search is empty, restore original content
+    if (searchTerm === '') {
+      faqItems.forEach((item, index) => {
+        const question = item.querySelector('.faq-question span');
+        const answerInner = item.querySelector('.faq-answer-inner');
+        question.innerHTML = originalContent[index].question;
+        answerInner.innerHTML = originalContent[index].answer;
+        item.style.display = '';
+      });
+      statsDiv.textContent = '';
+      return;
+    }
+
+    let totalMatches = 0;
+    let visibleItems = 0;
+
+    faqItems.forEach((item, index) => {
+      const question = item.querySelector('.faq-question span');
+      const answerInner = item.querySelector('.faq-answer-inner');
+      
+      // Restore original content first
+      question.innerHTML = originalContent[index].question;
+      answerInner.innerHTML = originalContent[index].answer;
+      
+      // Get text content for searching
+      const questionText = question.textContent;
+      const answerText = answerInner.textContent;
+      
+      // Check if search term exists in question or answer
+      const questionMatch = questionText.toLowerCase().includes(searchTerm.toLowerCase());
+      const answerMatch = answerText.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      if (questionMatch || answerMatch) {
+        // Highlight matches
+        if (questionMatch) {
+          question.innerHTML = highlightText(originalContent[index].question, searchTerm);
+          totalMatches += countMatches(questionText, searchTerm);
+        }
+        if (answerMatch) {
+          answerInner.innerHTML = highlightText(originalContent[index].answer, searchTerm);
+          totalMatches += countMatches(answerText, searchTerm);
+        }
+        item.style.display = '';
+        visibleItems++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    // Update stats
+    if (totalMatches > 0) {
+      statsDiv.textContent = `Found ${totalMatches} match${totalMatches !== 1 ? 'es' : ''} in ${visibleItems} item${visibleItems !== 1 ? 's' : ''}`;
+    } else {
+      statsDiv.textContent = 'No matches found';
+    }
+  }
+
+  function highlightText(text, searchTerm) {
+    if (!searchTerm) return text;
+    
+    const regex = new RegExp(`(${escapeRegex(searchTerm)})`, 'gi');
+    return text.replace(regex, '<span class="highlight">$1</span>');
+  }
+
+  function countMatches(text, searchTerm) {
+    const regex = new RegExp(escapeRegex(searchTerm), 'gi');
+    const matches = text.match(regex);
+    return matches ? matches.length : 0;
+  }
+
+  function escapeRegex(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+</script>
+
+</body>
+</html>
